@@ -55,7 +55,12 @@ struct ContentView: View {
                     .pickerStyle(SegmentedPickerStyle())
                 }
                 Section(header: Text("Valor total da conta")) {
-                    Text("R$\(totalAmount, specifier: "%.2f")")
+                    if self.tipPercentage == 0 {
+                        Text("R$\(totalAmount, specifier: "%.2f")")
+                            .foregroundColor(.red)
+                    } else {
+                        Text("R$\(totalAmount, specifier: "%.2f")")
+                    }
                 }
                 
                 Section(header: Text("Valor por pessoa")) {
